@@ -8,23 +8,25 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>gubin-common-redis</artifactId>
-    <description>缓存服务</description>
-
+    <artifactId>gubin-common-datasource</artifactId>
+    <description>多数据源</description>
     <dependencies>
-        <!-- SpringBoot Boot Redis -->
+        <!-- Druid -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
         </dependency>
+        <!-- Dynamic DataSource -->
         <dependency>
-            <groupId>com.gubin</groupId>
-            <artifactId>gubin-common-core</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>${dynamic-ds.version}</version>
         </dependency>
+        <!-- Mysql Connector -->
         <dependency>
-            <groupId>com.gubin</groupId>
-            <artifactId>gubin-common-log</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
         </dependency>
     </dependencies>
-
 </project>

@@ -1,0 +1,23 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: gubin-system
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: cc3c8c73-3e94-4846-b78b-a65835569b9c
+        group: SEATA_GROUP
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: cc3c8c73-3e94-4846-b78b-a65835569b9c
+        group: SEATA_GROUP
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+logback:
+  logStash:
+    destination: 127.0.0.1:5041

@@ -17,6 +17,8 @@
         <module>gubin-common-core</module>
         <module>gubin-common-mq</module>
         <module>gubin-common-log</module>
+        <module>gubin-common-seata</module>
+        <module>gubin-common-datasource</module>
     </modules>
 
 </project>

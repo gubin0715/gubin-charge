@@ -14,5 +14,9 @@
 
     <modules>
         <module>gubin-generator</module>
+        <module>gubin-system</module>
+        <module>gubin-user</module>
+        <module>gubin-order</module>
+        <module>gubin-commodity</module>
     </modules>
 </project>

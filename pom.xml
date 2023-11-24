@@ -15,10 +15,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fastjson.version>1.2.83</fastjson.version>
         <common-pool.version>2.6.2</common-pool.version>
-        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-        <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <spring-boot.version>2.6.13</spring-boot.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <commons.io.version>2.13.0</commons.io.version>
+        <druid.version>1.2.16</druid.version>
+        <dynamic-ds.version>3.5.2</dynamic-ds.version>
+        <mybait-plus.version>3.4.1</mybait-plus.version>
     </properties>
 
     <dependencyManagement>
@@ -59,12 +62,6 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-            <!-- 公共资源池 -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-pool2</artifactId>
-                <version>${common-pool.version}</version>
-            </dependency>
             <!-- io常用工具类 -->
             <dependency>
                 <groupId>commons-io</groupId>
@@ -92,11 +89,28 @@
                 <artifactId>gubin-common-redis</artifactId>
                 <version>${gubin.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.gubin</groupId>
+                <artifactId>gubin-common-datasource</artifactId>
+                <version>${gubin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gubin</groupId>
+                <artifactId>gubin-common-seata</artifactId>
+                <version>${gubin.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <!-- bootstrap 启动器 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
+
     <modules>
-        <module>gubin-api</module>
         <module>gubin-common</module>
         <module>gubin-modules</module>
     </modules>
@@ -115,22 +129,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
 </project>

@@ -11,6 +11,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -22,9 +24,13 @@ import java.lang.reflect.Method;
  */
 @Aspect
 @Component
+@RefreshScope
 public class LogAspect {
-    private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
 
+    @Value("${log.enable}")
+    private boolean logEnable;
+
+    private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
 
     // 配置织入点
     @Pointcut("@annotation(com.gubin.common.log.annotation.Log)")
@@ -34,10 +40,9 @@ public class LogAspect {
     @Around("logPointCut()")
     public Object execParamLogAspect(ProceedingJoinPoint joinPoint) throws Throwable {
         // 如果停用日志打印，则直接执行原有代码逻辑，跳过打印日志
-        /*if (!enable) {
+        if (!logEnable) {
             return joinPoint.proceed();
-        }*/
-
+        }
         // 如果启用日志分析，则获取方法上的注解信息，并打印方法入参出参
         Method method = this.getMethod(joinPoint);
         Log logProfiler = method.getAnnotation(Log.class);
