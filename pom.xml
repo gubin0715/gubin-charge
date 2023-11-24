@@ -99,6 +99,11 @@
                 <artifactId>gubin-common-seata</artifactId>
                 <version>${gubin.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.gubin</groupId>
+                <artifactId>gubin-gateway</artifactId>
+                <version>${gubin.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -113,6 +118,7 @@
     <modules>
         <module>gubin-common</module>
         <module>gubin-modules</module>
+        <module>gubin-gateway</module>
     </modules>
 
     <packaging>pom</packaging>
