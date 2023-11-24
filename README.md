@@ -8,6 +8,7 @@ com.gubin
 │       └── gubin-common-mq                           // 消息模块
 │       └── gubin-common-redis                        // 缓存服务
 │       └── gubin-common-seata                        // 分布式事务
+├── gubin-gateway           // 网关
 ├── gubin-modules           // 业务模块
 │       └── gubin-commodity                           // 商品服务
 │       └── gubin-generator                           // 代码生成
